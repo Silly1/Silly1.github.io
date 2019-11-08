@@ -84,10 +84,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本篇文章将讲述我如何通过查找网络资料，一步步搭建博客的过程。</p>
-<h2 id="背景前提："><a href="#背景前提：" class="headerlink" title="背景前提："></a>背景前提：</h2><p>最开始是因为要学习Github以及GIT版本控制系统的使用，在B站学习视频 <a href="https://b23.tv/av10475153/p1" target="_blank" rel="noopener">学会Git玩转Github</a>的最后一节接触到Github Pages搭建网站的相关知识,但因为视频录制在16年，在某些步骤存在出入，并且现在Github Pages需要花钱了。</p>
+<h1 id="背景前提："><a href="#背景前提：" class="headerlink" title="背景前提："></a>背景前提：</h1><p>最开始是因为要学习Github以及GIT版本控制系统的使用，在B站学习视频 <a href="https://b23.tv/av10475153/p1" target="_blank" rel="noopener">学会Git玩转Github</a>的最后一节接触到Github Pages搭建网站的相关知识,但因为视频录制在16年，在某些步骤存在出入，并且现在Github Pages需要花钱了。</p>
 <p>所以在坚守解决网络问题先不随便花钱的原则上，我带着奇心在B站上又看了一些基于Github搭建博客的视频，于是就了解到了Hexo+Github博客搭建模式。</p>
 <p>在搭建过程中了解到还有别的博客搭建的方法，这里我不分析谁好谁坏，仅作技术记录，等后面学深了，再进行比较吧。</p>
-<h2 id="Hexo-Github博客搭建"><a href="#Hexo-Github博客搭建" class="headerlink" title="Hexo+Github博客搭建"></a>Hexo+Github博客搭建</h2><h4 id="安装环境：Windows-10-64位"><a href="#安装环境：Windows-10-64位" class="headerlink" title="安装环境：Windows 10(64位)"></a>安装环境：Windows 10(64位)</h4><h5 id="第一步：工具下载"><a href="#第一步：工具下载" class="headerlink" title="第一步：工具下载"></a>第一步：工具下载</h5><pre><code>1. Github网站基本使用+Git版本控制系统
+<h1 id="Hexo-Github博客搭建"><a href="#Hexo-Github博客搭建" class="headerlink" title="Hexo+Github博客搭建"></a>Hexo+Github博客搭建</h1><h2 id="安装环境：Windows-10-64位"><a href="#安装环境：Windows-10-64位" class="headerlink" title="安装环境：Windows 10(64位)"></a>安装环境：Windows 10(64位)</h2><h3 id="第一步：工具下载"><a href="#第一步：工具下载" class="headerlink" title="第一步：工具下载"></a>第一步：工具下载</h3><pre><code>1. Github网站基本使用+Git版本控制系统
 
 2. Node.js软件(本节主要讲这部分)</code></pre><p><strong><em>软件下载</em></strong>：</p>
 <p>   <a href="https://nodejs.org/en/" target="_blank" rel="noopener">官方网站</a> (我选的版本是12.13.0LTS)</p>
@@ -115,7 +115,34 @@ cache=D:\Code_QQcube\Nodejs\node_cache</code></pre><ol start="3">
 <li><p>测试：配置完以上后，打开cmd窗口（或桌面下右键+GIT BASH HERE），输入npm install express -g 命令，安装express模块（-g是全局安装的意思）安装完成后，你可以看到expree的版本号。如果在该【D:\Code_QQcube\Nodejs\node_global\node_modules】路径下，可以找到express，则表示上面的配置成功。</p>
 </li>
 </ol>
-<h5 id="第二步：HEXO博客搭建"><a href="#第二步：HEXO博客搭建" class="headerlink" title="第二步：HEXO博客搭建"></a>第二步：HEXO博客搭建</h5>
+<h3 id="第二步：HEXO博客搭建"><a href="#第二步：HEXO博客搭建" class="headerlink" title="第二步：HEXO博客搭建"></a>第二步：HEXO博客搭建</h3><p> 该过程我参考了博客<a href="https://www.jianshu.com/p/1ceb64146bcb" target="_blank" rel="noopener"><em>秋叶依剑</em></a></p>
+<ol>
+<li><p>在电脑上新建一个专门用来放博客的文件夹，如我放在【D：Code_QQcube\Hexo\blog】下。在该文件夹下右键+GIT BASH HERE。</p>
+<p>在对话框中依次输入下面命令：</p>
+<pre><code>hexo init //成功后可以在blog文件夹下看到hexo部署的相关文件
+
+hexo server//成功后会给出一个你的hexo博客链接，就是你的博客网站啦。</code></pre></li>
+</ol>
+<ol start="2">
+<li><p>将博客托管到Github上   </p>
+<pre><code>前提是你要在Github上有一个以名为：你的Github用户名.github.ioc 的仓库（具体请看最开始背景前提里提到的B站学习视频）</code></pre><p>打开blog文件夹下的_config.yml配置文件，找到deploy,进行如下配置</p>
+<pre><code>deploy:
+   type: git
+   repository: https://github.com/Silly1/Silly1.github.io.git
+   branch: master</code></pre><p> 相应的网址是从你的Github仓库里克隆的网址</p>
+<p> <font color="red">注意上面的代码中冒号后要加一个空格,并且type\repository\branch要对齐</font></p>
+</li>
+<li><p>最后，运行下面两个命令</p>
+<pre><code>npm install hexo-deployer-git --save
+
+hexo g -d</code></pre><p> 成功后你可以在你的Github对应仓库中看到你的hexo博客部署的相关文件</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>至此，hexo+Github搭建过程就结束了。上面过程主要讲node.js软件下载配置以及hexo搭建的过程，但是对于Github网站基本使用+Git版本控制系统下载没有做详细讲解，具体可以看B站上的相关学习视频，后期有空我再写。</p>
+<p>第一次这么认真写博客，过程真的参考了很多博客、B站视频，远远多于上面给出的链接。遇到问题，网络上查一下，基本都能找到解决方法，虽然这个过程比较耗时间。</p>
+<p>做好问题解决记录，对以后应该大有帮助。</p>
+<p>下期将会写一下如何在我的hexo上写像这样的博客~</p>
+
       
     </div>
     <footer class="article-footer">
