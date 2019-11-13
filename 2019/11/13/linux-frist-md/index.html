@@ -7,12 +7,14 @@
   
   <title>linux_frist.md | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="这篇文章主要是讲我是如何将Ubuntu搭建起来的。 环境：Windows10软件：VMware14.0+Ubuntu18.04第一部分：软件安装 VMware的软件安装比较简单，上官网或者云盘下载安装包，然后按照往上教程一步步来就可以了，这个过程我没遇到什么难点。  Ubuntu18.04我是在官网下载的。  这个过程可能有一些配置的问题，这里我参考了 stpeace  可能版本不同还有一些别的选">
+<meta property="og:type" content="article">
 <meta property="og:title" content="linux_frist.md">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;13&#x2F;linux-frist-md&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这篇文章主要是讲我是如何将Ubuntu搭建起来的。 环境：Windows10软件：VMware14.0+Ubuntu18.04第一部分：软件安装 VMware的软件安装比较简单，上官网或者云盘下载安装包，然后按照往上教程一步步来就可以了，这个过程我没遇到什么难点。  Ubuntu18.04我是在官网下载的。  这个过程可能有一些配置的问题，这里我参考了 stpeace  可能版本不同还有一些别的选">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-13T01:28:23.254Z">
+<meta property="og:updated_time" content="2019-11-13T02:48:29.221Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -82,7 +84,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>这篇文章主要是讲我是如何将Ubuntu搭建起来的。</p>
+<h2 id="环境：Windows10"><a href="#环境：Windows10" class="headerlink" title="环境：Windows10"></a>环境：Windows10</h2><h2 id="软件：VMware14-0-Ubuntu18-04"><a href="#软件：VMware14-0-Ubuntu18-04" class="headerlink" title="软件：VMware14.0+Ubuntu18.04"></a>软件：VMware14.0+Ubuntu18.04</h2><h2 id="第一部分：软件安装"><a href="#第一部分：软件安装" class="headerlink" title="第一部分：软件安装"></a>第一部分：软件安装</h2><ol>
+<li><p>VMware的软件安装比较简单，上官网或者云盘下载安装包，然后按照往上教程一步步来就可以了，这个过程我没遇到什么难点。</p>
+</li>
+<li><p>Ubuntu18.04我是在官网下载的。</p>
+<p> 这个过程可能有一些配置的问题，这里我参考了 <a href="https://blog.csdn.net/stpeace/article/details/78598333" target="_blank" rel="noopener">stpeace</a></p>
+<p> 可能版本不同还有一些别的选项，自行上网百度一下就知道选什么了，哈哈，我认为不是很重要。<br> A.选择网络为桥接模式</p>
+</li>
+</ol>
+<h2 id="第二部分：Ubuntu配置"><a href="#第二部分：Ubuntu配置" class="headerlink" title="第二部分：Ubuntu配置"></a>第二部分：Ubuntu配置</h2><p>安装完Ubuntu后，需要对其进行配置</p>
+<h3 id="关于英文路径问题"><a href="#关于英文路径问题" class="headerlink" title="关于英文路径问题"></a>关于英文路径问题</h3><p>若你在安装时选择了中文安装，会导致你的Ubuntu系统中的文件路径也是以中文的形式命名，这不便于我们在终端进行操作，这里将此设置为英文。</p>
+<ol>
+<li>右下角应用点开，打开语言支持，改回英文路径，然后重启Ubuntu.</li>
+<li>重新启动后会弹出窗口询问是否将..切换回英文路径，同意并关闭。</li>
+<li>若你还想切换回中文环境，再打开语言支持，改回中文路径，重启，重启后在弹出窗口中选择拒绝并关闭。</li>
+</ol>
+<h3 id="关于更新源的问题"><a href="#关于更新源的问题" class="headerlink" title="关于更新源的问题"></a>关于更新源的问题</h3><p>为了下载方便，速度更快，我们将修改Linux系统默认的国外源为国内源。</p>
+<p>1.右下角应用点开，打开software &amp; Updates,在Ubuntu Software界面上选择download from ，选择CHINA-任意国内源，我这里选择的是阿里云（aliyun）<br>2.回到终端，输入sudo apt-get update<br>3.所有网址都获取成功，则表示源正确更新了。</p>
+<pre><code>这个过程可能遇到的问题：
+A.由于一开始安装Ubuntu，有很多软件还待安装，因此系统会有一个Software Updater的更新，如果你没有更新，则该进程会占用掉系统的apt-get，导致你无法正常更新源。
+操作：先进行系统更新，更新完毕后重启，再更新源。
+我还看到网上相关的操作，但是一些命令由于我没有更新源是无法安装，所有有些命令根本就无法运行，但作为一种参考留在这里。</code></pre><p> <a href="https://blog.csdn.net/zwjsatan/article/details/8101712" target="_blank" rel="noopener">cnblog</a></p>
+<pre><code>B.如果更新过程发现很卡，并且进程一直不前进，可以选择重启后再次下载。</code></pre><h3 id="网络配置问题"><a href="#网络配置问题" class="headerlink" title="网络配置问题"></a>网络配置问题</h3><p>前面在说Ubuntu安装时谈到，要将网络配置为桥接模式。<br>具体来说，Ubuntu有三种网络配置方式，其区别是什么，参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">yaoqinzhou1943</a><br>上面参考，只理解概念，操作我们不这么操作。</p>
+<p>接下来讲选择了桥接模式后，如何为系统配置静态IP。</p>
+<pre><code>这里提前声明，不同版本配置的方式不一样！！我试过用别人给的16版本的方式去配置，但是行不通。最后是通过修改17版本后才有的netplan，我的18版本只有在改了这个后才能正常配置地址。</code></pre><p>具体参考：</p>
+<p><a href="https://m.jb51.net/article/151753.htm" target="_blank" rel="noopener">Ubuntu配置1</a></p>
+<p><a href="https://blog.csdn.net/qq_42975842/article/details/81705244" target="_blank" rel="noopener">leo-blog</a></p>
+
       
     </div>
     <footer class="article-footer">
