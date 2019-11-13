@@ -107,10 +107,11 @@ A.由于一开始安装Ubuntu，有很多软件还待安装，因此系统会有
 我还看到网上相关的操作，但是一些命令由于我没有更新源是无法安装，所有有些命令根本就无法运行，但作为一种参考留在这里。</code></pre><p> <a href="https://blog.csdn.net/zwjsatan/article/details/8101712" target="_blank" rel="noopener">cnblog</a></p>
 <pre><code>B.如果更新过程发现很卡，并且进程一直不前进，可以选择重启后再次下载。</code></pre><h3 id="网络配置问题"><a href="#网络配置问题" class="headerlink" title="网络配置问题"></a>网络配置问题</h3><p>前面在说Ubuntu安装时谈到，要将网络配置为桥接模式。<br>具体来说，Ubuntu有三种网络配置方式，其区别是什么，参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">yaoqinzhou1943</a><br>上面参考，只理解概念，操作我们不这么操作。</p>
 <p>接下来讲选择了桥接模式后，如何为系统配置静态IP。</p>
-<pre><code>这里提前声明，不同版本配置的方式不一样！！我试过用别人给的16版本的方式去配置，但是行不通。最后是通过修改17版本后才有的netplan，我的18版本只有在改了这个后才能正常配置地址。</code></pre><p>具体参考：</p>
+<p>1.先查清楚主机的各类地址：cmd串口——ipconfig<br>2.配置Ubuntu地址：</p>
+<p>具体参考：</p>
 <p><a href="https://m.jb51.net/article/151753.htm" target="_blank" rel="noopener">Ubuntu配置1</a></p>
 <p><a href="https://blog.csdn.net/qq_42975842/article/details/81705244" target="_blank" rel="noopener">leo-blog</a></p>
-
+<pre><code>这里提前声明，不同版本配置的方式不一样！！我试过用别人给的16版本的方式去配置，但是行不通。最后是通过修改17版本后才有的netplan，我的18版本只有在改了这个后才能正常配置地址。</code></pre>
       
     </div>
     <footer class="article-footer">
